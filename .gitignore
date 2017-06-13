@@ -13,5 +13,7 @@ target/*
 # Package Files #
 *.jar
 
-
-
+# Eclipse
+.classpath
+.project
+.settings/
