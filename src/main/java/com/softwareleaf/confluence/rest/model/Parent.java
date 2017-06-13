@@ -17,6 +17,8 @@ public class Parent {
      * The type of the parent.
      */
     private String type;
+    
+    private Space space;
 
     /**
      * Constructor.
@@ -34,7 +36,6 @@ public class Parent {
         this.id = id;
         this.type = type;
     }
-
 
     public String getId() {
         return id;

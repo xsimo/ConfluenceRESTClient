@@ -7,8 +7,11 @@ import java.util.Objects;
 /**
  * Represents a piece of content.
  * <p>
- * <p>Example
- * <pre>{@literal
+ * <p>
+ * Example
+ * 
+ * <pre>
+ * {@literal
  *      {
  *          "id": "22217244",
  *          "type": "page",
@@ -29,166 +32,166 @@ import java.util.Objects;
  * @author Jonathon Hope
  */
 public class Content {
-    /**
-     * The id of the page or blog post.
-     */
-    private String id;
-    /**
-     * The type of content: blog post or page.
-     */
-    private String type;
-    /**
-     * The ancestors of this blog post or page.
-     */
-    private Parent[] ancestors;
-    /**
-     * The space object holds the space key, that is used to identify the location of
-     * the piece of content.
-     */
-    private Space space;
-    /**
-     * The title of the page or blog post.
-     */
-    private String title;
-    /**
-     * The body object holds the stored data of the page or blog post.
-     */
-    private Body body;
-    /**
-     * Versioning information.
-     */
-    private Version version;
-    /**
-     * History information.
-     */
-    private History history;
+	/**
+	 * The id of the page or blog post.
+	 */
+	private String id;
+	/**
+	 * The type of content: blog post or page.
+	 */
+	private String type;
+	/**
+	 * The ancestors of this blog post or page.
+	 */
+	private Parent[] ancestors;
+	/**
+	 * The space object holds the space key, that is used to identify the
+	 * location of the piece of content.
+	 */
+	private Space space;
+	/**
+	 * The title of the page or blog post.
+	 */
+	private String title;
+	/**
+	 * The body object holds the stored data of the page or blog post.
+	 */
+	private Body body;
+	/**
+	 * Versioning information.
+	 */
+	private Version version;
+	/**
+	 * History information.
+	 */
+	private History history;
 
-    /**
-     * Default Constructor.
-     */
-    public Content() {
-    }
+	/**
+	 * Default Constructor.
+	 */
+	public Content() {
+	}
 
-    /**
-     * Constructor.
-     *
-     * @param id    the id of the piece of content.
-     * @param type  the type of piece of content.
-     * @param space the space object for the piece of content.
-     * @param title the title of the piece of content.
-     * @param body  the body of the piece of content.
-     */
-    public Content(String id,
-                   String type,
-                   Space space,
-                   String title,
-                   Body body) {
-        this.id = id;
-        this.type = type;
-        this.title = title;
-        this.space = space;
-        this.body = body;
-    }
+	/**
+	 * Constructor.
+	 *
+	 * @param id
+	 *            the id of the piece of content.
+	 * @param type
+	 *            the type of piece of content.
+	 * @param space
+	 *            the space object for the piece of content.
+	 * @param title
+	 *            the title of the piece of content.
+	 * @param body
+	 *            the body of the piece of content.
+	 */
+	public Content(String id, String type, Space space, String title, Body body) {
+		this.id = id;
+		this.type = type;
+		this.title = title;
+		this.space = space;
+		this.body = body;
+	}
 
-    // getters and setters
+	// getters and setters
 
-    public String getType() {
-        return type;
-    }
+	public String getType() {
+		return type;
+	}
 
-    public void setType(Type type) {
-        this.type = type.toString();
-    }
+	public void setType(Type type) {
+		this.type = type.toString();
+	}
 
-    public Parent[] getAncestors() {
-        return ancestors;
-    }
+	public Parent[] getAncestors() {
+		return ancestors;
+	}
 
-    public void setAncestors(Parent[] ancestors) {
-        this.ancestors = ancestors;
-    }
+	public void setAncestors(Parent[] ancestors) {
+		this.ancestors = ancestors;
+	}
 
-    public Space getSpace() {
-        return space;
-    }
+	public void setAncestor(Parent ancestor) {
+		this.ancestors = new Parent[] { ancestor };
+	}
 
-    public void setSpace(Space space) {
-        this.space = space;
-    }
+	public Space getSpace() {
+		return space;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public void setSpace(Space space) {
+		this.space = space;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public Body getBody() {
-        return body;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public void setBody(Body body) {
-        this.body = body;
-    }
+	public Body getBody() {
+		return body;
+	}
 
-    public String getId() {
-        return id;
-    }
+	public void setBody(Body body) {
+		this.body = body;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setType(String type) {
-        this.type = type;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public Version getVersion() {
-        return version;
-    }
+	public void setType(String type) {
+		this.type = type;
+	}
 
-    public void setVersion(Version version) {
-        this.version = version;
-    }
+	public Version getVersion() {
+		return version;
+	}
 
-    public History getHistory() {
-        return history;
-    }
+	public void setVersion(Version version) {
+		this.version = version;
+	}
 
-    public void setHistory(History history) {
-        this.history = history;
-    }
+	public History getHistory() {
+		return history;
+	}
 
-    @Override
-    public String toString() {
-        return new GsonBuilder().disableHtmlEscaping().create().toJson(this);
-    }
+	public void setHistory(History history) {
+		this.history = history;
+	}
 
-    // equals and hashcode
+	@Override
+	public String toString() {
+		return new GsonBuilder().disableHtmlEscaping().create().toJson(this);
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || !(o instanceof Content)) {
-            return false;
-        }
-        Content content = (Content) o;
-        return Objects.equals(id, content.id) &&
-                Objects.equals(type, content.type) &&
-                Objects.equals(ancestors, content.ancestors) &&
-                Objects.equals(space, content.space) &&
-                Objects.equals(title, content.title) &&
-                Objects.equals(body, content.body) &&
-                Objects.equals(version, content.version) &&
-                Objects.equals(history, content.history);
-    }
+	// equals and hashcode
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, type, ancestors, space, title, body, version, history);
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || !(o instanceof Content)) {
+			return false;
+		}
+		Content content = (Content) o;
+		return Objects.equals(id, content.id) && Objects.equals(type, content.type)
+				&& Objects.equals(ancestors, content.ancestors) && Objects.equals(space, content.space)
+				&& Objects.equals(title, content.title) && Objects.equals(body, content.body)
+				&& Objects.equals(version, content.version) && Objects.equals(history, content.history);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, type, ancestors, space, title, body, version, history);
+	}
 }
-

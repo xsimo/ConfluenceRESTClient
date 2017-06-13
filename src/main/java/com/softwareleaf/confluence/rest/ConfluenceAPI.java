@@ -5,6 +5,7 @@ import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.*;
 
+import java.awt.List;
 import java.util.Map;
 
 /**
@@ -33,7 +34,8 @@ public interface ConfluenceAPI {
      */
     @GET("/rest/api/content")
     ContentResultList getContentBySpaceKeyAndTitle(final @Query("key") String key,
-                                                   final @Query("title") String title);
+                                                   final @Query("title") String title,
+                                                   final @Query("expand") String expandables);
 
     /**
      * Fetch the children for a given {@code Content} identified by the {@code parentId}.
@@ -89,6 +91,13 @@ public interface ConfluenceAPI {
     @POST("/rest/api/content")
     void postContentWithCallback(final @Body Content content,
                                  final Callback<Content> callback);
+    
+    /**
+     * @param content
+     * @return
+     */
+    @PUT("/rest/api/content/{id}")
+    Content updateContent(final @Path("id") String id, final @Body Content content);
 
     /**
      * DELETE Content

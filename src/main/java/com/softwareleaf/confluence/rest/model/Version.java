@@ -25,8 +25,11 @@ public class Version {
      * An optional message.
      */
     private String message;
+    
+    private int number;
 
-    public Version() {
+    public Version(int number) {
+    	this.number = number;
     }
 
     public CreatedBy getBy() {
@@ -55,7 +58,15 @@ public class Version {
 
     // equals and hashcode
 
-    @Override
+    public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

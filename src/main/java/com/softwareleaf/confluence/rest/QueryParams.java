@@ -61,5 +61,6 @@ public interface QueryParams {
      */
     String EXPAND_BODY_STORAGE = "?expand=body.storage";
 
+    String EXPAND = "expand";
 
 }

@@ -1,5 +1,7 @@
 package com.softwareleaf.confluence.rest.model;
 
+import java.util.Arrays;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -68,4 +70,19 @@ public class ContentResultList {
     public void setSize(int size) {
         this.size = size;
     }
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ContentResultList [contents=");
+		builder.append(Arrays.toString(contents));
+		builder.append(", start=");
+		builder.append(start);
+		builder.append(", limit=");
+		builder.append(limit);
+		builder.append(", size=");
+		builder.append(size);
+		builder.append("]");
+		return builder.toString();
+	}
 }

@@ -89,7 +89,8 @@ public class ConfluenceClient {
      */
     public ContentResultList getContentBySpaceKeyAndTitle(final String key,
                                                           final String title) {
-        return confluenceAPI.getContentBySpaceKeyAndTitle(key, title);
+    	String expandables = QueryParams.Expandables.VERSION.toString() + "," + QueryParams.Expandables.SPACE.toString() + "," + "body.storage";
+        return confluenceAPI.getContentBySpaceKeyAndTitle(key, title, expandables);
     }
 
     /**
@@ -127,9 +128,13 @@ public class ConfluenceClient {
      * @return the result {@code Content} instance with the {@code id} field updated.
      */
     public Content postContent(final Content content) {
-        System.out.println(content.toString());
+        //System.out.println(content.toString());
         return confluenceAPI.postContent(content);
     }
+    
+    public Content updateContent(final Content content) {
+		return confluenceAPI.updateContent(content.getId(), content);
+	}
 
     /**
      * DELETE Content
@@ -138,9 +143,10 @@ public class ConfluenceClient {
      *
      * @param id the id of the page of blog post to be deleted.
      */
-    public void deleteContentById(final String id) {
+    public boolean deleteContentById(final String id) {
         NoContent noContent = confluenceAPI.deleteContentById(id);
         logger.fine("Response: " + noContent);
+        return noContent == null;
     }
 
     /**
