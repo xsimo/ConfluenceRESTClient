@@ -4,7 +4,7 @@
 
     <groupId>com.softwareleaf.confluence</groupId>
     <artifactId>confluence-api-client</artifactId>
-    <version>0.5.4-SNAPSHOT</version>
+    <version>0.5.5-SNAPSHOT</version>
 
     <description>
         A Java client for interacting with the Atlassian Confluence REST API.
