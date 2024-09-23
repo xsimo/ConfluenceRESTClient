@@ -28,7 +28,10 @@ public class Version {
     
     private int number;
 
-    public Version(int number) {
+    public Version(){
+		
+    }
+	public Version(int number) {
     	this.number = number;
     }
 
@@ -75,6 +78,7 @@ public class Version {
 
         if (by != null ? !by.equals(version.by) : version.by != null) return false;
         if (!when.equals(version.when)) return false;
+		if(number != version.number) return false;
         return !(message != null ? !message.equals(version.message) : version.message != null);
 
     }
@@ -84,6 +88,7 @@ public class Version {
         int result = by != null ? by.hashCode() : 0;
         result = 31 * result + when.hashCode();
         result = 31 * result + (message != null ? message.hashCode() : 0);
+		result = 31 * result + number;
         return result;
     }
 

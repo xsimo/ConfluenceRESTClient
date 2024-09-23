@@ -59,7 +59,7 @@ public interface QueryParams {
      * </pre>
      * <p> would expand the actual content stored in the page or blog post with the {@code id=757575775}.
      */
-    String EXPAND_BODY_STORAGE = "?expand=body.storage";
+    String EXPAND_BODY_STORAGE = "?expand=body.storage,version";
 
     String EXPAND = "expand";
 
